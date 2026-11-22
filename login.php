@@ -40,6 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <?php endif; ?>
 
 <form method="post">
+    <?= csrf_field() ?>
     <p>
         <label>Username<br>
             <input type="text" name="username" value="<?= e($username) ?>" required>

@@ -40,6 +40,7 @@ $total = 0;
         <td><?= rupiah($subtotal) ?></td>
         <td>
             <form method="post">
+                <?= csrf_field() ?>
                 <input type="hidden" name="kode" value="<?= e((string) $kode) ?>">
                 <button type="submit">Hapus</button>
             </form>
