@@ -2,9 +2,8 @@
 require __DIR__ . '/bootstrap.php';
 
 // Proteksi halaman: hanya untuk admin yang sudah login
-if (empty($_SESSION['admin'])) {
-    redirect('login.php');
-}
+// BARU - Tugas rumah H1: pakai fungsi penjaga
+require_login();
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -20,5 +19,13 @@ if (empty($_SESSION['admin'])) {
 <p>Session ID: <code><?= e(session_id()) ?></code></p>
 
 <p><a href="index.php">Lihat halaman produk</a></p>
+
+<!-- BARU - Tugas rumah H1: Tombol Logout -->
+<!-- Harus form POST + token, bukan link biasa, biar aman dari CSRF -->
+<form action="logout.php" method="post" style="margin-top: 16px;">
+    <input type="hidden" name="csrf_token" value="<?= e(csrf_token()) ?>">
+    <button type="submit">Logout</button>
+</form>
+
 </body>
 </html>

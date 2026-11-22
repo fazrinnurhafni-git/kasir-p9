@@ -13,7 +13,7 @@ session_set_cookie_params([
 
 // 2. Mulai session
 session_start();
-require __DIR__ . '/csrf.php';   // <-- BARIS BARU
+require __DIR__ . '/csrf.php';
 
 // 3. Fungsi bantu
 function e(string $value): string
@@ -30,4 +30,15 @@ function redirect(string $url): void
 {
     header('Location: ' . $url);
     exit;
+}
+
+// 4. BARU - Tugas rumah H1: Penjaga halaman admin
+function require_login(): void
+{
+    // Kalau session 'admin' kosong = belum login
+    if (empty($_SESSION['admin'])) {
+        // Tendang balik ke login.php
+        header('Location: login.php');
+        exit;
+    }
 }

@@ -34,6 +34,15 @@ $jumlahItem = array_sum($_SESSION['cart'] ?? []);
     <a href="login.php">Login Admin</a>
 </p>
 
+<!-- BARU - Tugas rumah H1: Tombol Logout, cuma muncul kalau udah login -->
+<?php if (!empty($_SESSION['admin'])): ?>
+    <p>Login sebagai: <strong><?= e($_SESSION['admin']) ?></strong></p>
+    <form action="logout.php" method="post" style="display:inline;">
+        <?= csrf_field() ?>
+        <button type="submit">Logout</button>
+    </form>
+<?php endif; ?>
+
 <?php if ($flash): ?>
     <p style="color:green"><?= e($flash) ?></p>
 <?php endif; ?>
