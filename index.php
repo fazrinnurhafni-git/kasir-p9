@@ -28,7 +28,7 @@ $jumlahItem = array_sum($_SESSION['cart'] ?? []);
     <title>Daftar Produk</title>
 </head>
 <body>
-<h1>Daftar Produk</h1>
+<h1>Daftar Produk - Nur Hapni Pajrin ( 25110197 )</h1>
 <p>
     <a href="keranjang.php">Keranjang (<?= $jumlahItem ?>)</a> |
     <a href="login.php">Login Admin</a>
